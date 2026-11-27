@@ -20,7 +20,6 @@ st.markdown("""
 :root {
     --navy: #16324f;
     --blue: #1f5c99;
-    --cyan: #3c87a6;
     --green: #2a7b67;
     --ink: #1c2b36;
     --muted: #647684;
@@ -30,55 +29,73 @@ st.markdown("""
 html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
 .stApp { background: var(--surface); color: var(--ink); }
 [data-testid="stHeader"] { background: rgba(244,247,249,.92); }
-[data-testid="stSidebar"] {
-    background: #ffffff;
-    border-right: 1px solid var(--line);
-}
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h1,
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
-    font-family: 'Manrope', sans-serif;
-}
+[data-testid="stSidebar"] { background: #ffffff; border-right: 1px solid var(--line); }
 .block-container { max-width: 1480px; padding: 1.25rem 2rem 3rem; }
 
 .brandbar {
-    display: flex; align-items: center; justify-content: space-between;
-    border: 1px solid var(--line); border-radius: 10px; background: white;
-    padding: .55rem .8rem; margin-bottom: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 112px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 8px 18px 8px 12px;
+    margin-bottom: 1.1rem;
     box-shadow: 0 2px 8px rgba(22,50,79,.035);
 }
-.brand-logo { height: 82px; max-width: 520px; object-fit: contain; }
-.status { color: var(--green); background: #edf6f3; border: 1px solid #d8e9e3; border-radius: 20px; padding: .42rem .75rem; font-size: .75rem; font-weight: 700; white-space: nowrap; }
+.brand-logo {
+    display: block;
+    height: 94px;
+    width: auto;
+    max-width: 62%;
+    object-fit: contain;
+}
+.status {
+    color: var(--green);
+    background: #edf6f3;
+    border: 1px solid #d8e9e3;
+    border-radius: 20px;
+    padding: .42rem .75rem;
+    font-size: .75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
 
-.sidebar-brand { display: block; width: 100%; max-height: 110px; object-fit: contain; margin: 0 auto .35rem; }
+.sidebar-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 118px;
+    object-fit: contain;
+    margin: 8px auto 4px;
+}
 .page-head { margin: .35rem 0 1.25rem; }
 .page-head h1 { font-family: 'Manrope', sans-serif; color: var(--navy); font-size: 2rem; margin: 0 0 .25rem; }
 .page-head p { color: var(--muted); margin: 0; }
 
 div[data-testid="stMetric"] {
-    background: white; border: 1px solid var(--line); border-radius: 8px;
-    padding: 1.05rem 1.15rem; min-height: 112px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.05rem 1.15rem;
+    min-height: 112px;
     box-shadow: 0 2px 7px rgba(22,50,79,.025);
 }
 div[data-testid="stMetricLabel"] { color: var(--muted); font-size: .82rem; font-weight: 600; }
 div[data-testid="stMetricValue"] { color: var(--navy); font-family: 'Manrope', sans-serif; font-size: 1.55rem; }
-
-.panel {
-    background: white; border: 1px solid var(--line); border-radius: 8px;
-    padding: 1.25rem; box-shadow: 0 2px 7px rgba(22,50,79,.025);
-}
+.panel { background: white; border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; box-shadow: 0 2px 7px rgba(22,50,79,.025); }
 .section-title { color: var(--navy); font-family: 'Manrope', sans-serif; font-size: 1.08rem; font-weight: 700; margin-bottom: .9rem; }
 [data-testid="stTabs"] [role="tab"] { font-weight: 600; color: var(--muted); }
 [data-testid="stTabs"] [aria-selected="true"] { color: var(--blue); border-bottom-color: var(--blue); }
-.disclaimer {
-    background: #eef4f8; border-left: 3px solid var(--blue); border-radius: 4px;
-    color: #526675; font-size: .82rem; padding: .75rem .9rem; margin-bottom: 1.2rem;
-}
+.disclaimer { background: #eef4f8; border-left: 3px solid var(--blue); border-radius: 4px; color: #526675; font-size: .82rem; padding: .75rem .9rem; margin-bottom: 1.2rem; }
 [data-testid="stExpander"] { border: 1px solid var(--line) !important; border-radius: 6px !important; background: white; }
-.stButton > button { border-radius: 5px; }
 hr { border-color: var(--line); }
+
 @media (max-width: 700px) {
-    .brand-logo { height: 58px; }
+    .block-container { padding-left: 1rem; padding-right: 1rem; }
+    .brandbar { min-height: 82px; padding: 6px 10px; }
+    .brand-logo { height: 68px; max-width: 82%; }
     .status { display: none; }
 }
 </style>
@@ -112,7 +129,7 @@ with st.sidebar:
 
 st.markdown("""
 <div class="brandbar">
-  <img class="brand-logo" src="Logo.png" alt="HIDROVIABLE">
+  <img class="brand-logo" src="Logo.png" alt="">
   <div class="status">ANÁLISIS PRELIMINAR</div>
 </div>
 <div class="page-head">
