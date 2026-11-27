@@ -5,9 +5,11 @@ import numpy_financial as npf
 import pandas as pd
 import streamlit as st
 
+LOGO_PATH = "Logo.png"
+
 st.set_page_config(
     page_title="HIDROVIABLE | Plataforma de Evaluación Energética",
-    page_icon="💧",
+    page_icon=LOGO_PATH,
     layout="wide",
 )
 
@@ -37,22 +39,18 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
 [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
     font-family: 'Manrope', sans-serif;
 }
-.block-container { max-width: 1480px; padding: 1.8rem 2rem 3rem; }
+.block-container { max-width: 1480px; padding: 1.25rem 2rem 3rem; }
 
 .brandbar {
     display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid var(--line); padding: 0 0 1.1rem; margin-bottom: 1.3rem;
+    border: 1px solid var(--line); border-radius: 10px; background: white;
+    padding: .55rem .8rem; margin-bottom: 1.1rem;
+    box-shadow: 0 2px 8px rgba(22,50,79,.035);
 }
-.brand { display: flex; align-items: center; gap: .75rem; }
-.brand-mark {
-    display: grid; place-items: center; width: 44px; height: 44px;
-    border-radius: 8px; color: white; background: var(--navy);
-    font-size: 20px;
-}
-.brand-name { font-family: 'Manrope', sans-serif; font-size: 1.28rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
-.brand-unit { font-size: .72rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-top: .25rem; }
-.status { color: var(--green); background: #edf6f3; border: 1px solid #d8e9e3; border-radius: 20px; padding: .42rem .75rem; font-size: .75rem; font-weight: 700; }
+.brand-logo { height: 82px; max-width: 520px; object-fit: contain; }
+.status { color: var(--green); background: #edf6f3; border: 1px solid #d8e9e3; border-radius: 20px; padding: .42rem .75rem; font-size: .75rem; font-weight: 700; white-space: nowrap; }
 
+.sidebar-brand { display: block; width: 100%; max-height: 110px; object-fit: contain; margin: 0 auto .35rem; }
 .page-head { margin: .35rem 0 1.25rem; }
 .page-head h1 { font-family: 'Manrope', sans-serif; color: var(--navy); font-size: 2rem; margin: 0 0 .25rem; }
 .page-head p { color: var(--muted); margin: 0; }
@@ -79,12 +77,16 @@ div[data-testid="stMetricValue"] { color: var(--navy); font-family: 'Manrope', s
 [data-testid="stExpander"] { border: 1px solid var(--line) !important; border-radius: 6px !important; background: white; }
 .stButton > button { border-radius: 5px; }
 hr { border-color: var(--line); }
+@media (max-width: 700px) {
+    .brand-logo { height: 58px; }
+    .status { display: none; }
+}
 </style>
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.markdown("### Parámetros del proyecto")
-    st.caption("Ajuste los supuestos y actualice el análisis.")
+    st.image(LOGO_PATH, use_container_width=True)
+    st.caption("Plataforma de Evaluación Energética")
     st.divider()
 
     with st.expander("1 · Recurso hídrico", expanded=True):
@@ -110,13 +112,7 @@ with st.sidebar:
 
 st.markdown("""
 <div class="brandbar">
-  <div class="brand">
-    <div class="brand-mark">H</div>
-    <div>
-      <div class="brand-name">HIDROVIABLE</div>
-      <div class="brand-unit">Plataforma de Evaluación Energética</div>
-    </div>
-  </div>
+  <img class="brand-logo" src="Logo.png" alt="HIDROVIABLE">
   <div class="status">ANÁLISIS PRELIMINAR</div>
 </div>
 <div class="page-head">
